@@ -1,0 +1,38 @@
+name: Run API Tests
+
+on:
+  push:
+      branches: [main]
+  workflow_dispatch:
+  schedule:
+      - cron: '30 2 * * *'
+      - cron: '30 13 * * *'
+      - cron: '0 6 * * 1-5'
+
+jobs:
+  run-postman-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v5.0.0
+
+      - name: Install nodejs and nom
+        uses: actions/setup-node@v6.0.0
+        with:
+          node-version: '22'
+
+      - name: Install newman & htmlextra
+        run: | # Multi line commands - we need to use single pipe 
+          npm install -g newman
+          npm install -g newman-reporter-htmlextra
+
+      - name: Run postman collection with newman
+        run: |
+          newman run In-warranty_Flow_Collection_Excel_Data.postman_collection.json \
+            -e QA.postman_environment.json \
+            -d In-warranty_Flow_TestData.csv \
+            -r html,htmlextra
+        
+          
+  
