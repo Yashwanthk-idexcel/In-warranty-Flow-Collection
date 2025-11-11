@@ -17,9 +17,9 @@ jobs:
         uses: actions/checkout@v5.0.0
 
       - name: Install nodejs and npm
-        uses: actions/setup-node@v6.0.0
+        uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '20'
 
       - name: Install newman & htmlextra
         run: | # Multi line commands - we need to use single pipe 
