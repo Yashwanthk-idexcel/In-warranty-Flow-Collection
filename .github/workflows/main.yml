@@ -17,7 +17,7 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v5.0.0
 
-      - name: Install nodejs and nom
+      - name: Install nodejs and npm
         uses: actions/setup-node@v6.0.0
         with:
           node-version: '22'
