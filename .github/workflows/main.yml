@@ -15,20 +15,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install nodejs and npm
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
+      - name: List files in repository
+        run: ls -R .
 
-      - name: Install newman & htmlextra
-        run: | # Multi line commands - we need to use single pipe 
-          npm install -g newman
-          npm install -g newman-reporter-htmlextra
+      # - name: Install nodejs and npm
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: '18'
 
-      - name: Run postman collection with newman
-        run: |               
-          newman run postman/In-warranty_Flow_Collection_Random_Data.postman_collection.json \
-            -e QA.postman_environment.json \
-            -r htmlextra
+      # - name: Install newman & htmlextra
+      #   run: | # Multi line commands - we need to use single pipe 
+      #     npm install -g newman
+      #     npm install -g newman-reporter-htmlextra
+
+      # - name: Run postman collection with newman
+      #   run: |               
+      #     newman run postman/In-warranty_Flow_Collection_Random_Data.postman_collection.json \
+      #       -e QA.postman_environment.json \
+      #       -r htmlextra
           
   
