@@ -28,10 +28,7 @@ jobs:
 
       - name: Run postman collection with newman
         run: |
-          newman run In-warranty_Flow_Collection_Random_Data.postman_collection \
-            -e QA.postman_environment.json \
-            -d In-warranty_Flow_TestData.csv \
-            -r htmlextra
+          newman run In-warranty_Flow_Collection_Random_Data.postman_collection.json -e QA.postman_environment.json -r htmlextra
         
           
   
