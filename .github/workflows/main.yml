@@ -7,19 +7,18 @@ on:
   schedule:
       - cron: '30 2 * * *'
       - cron: '30 13 * * *'
-      - cron: '0 6 * * 1-5'
 
 jobs:
   run-postman-tests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v3
 
       - name: Install nodejs and npm
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '18'
 
       - name: Install newman & htmlextra
         run: | # Multi line commands - we need to use single pipe 
@@ -28,7 +27,9 @@ jobs:
 
       - name: Run postman collection with newman
         run: |
-          newman run In-warranty_Flow_Collection_Random_Data.postman_collection.json -e QA.postman_environment.json -r htmlextra
+          newman run postman/In-warranty_Flow_Collection_Random_Data.postman_collection.json \
+            -e postman/QA.postman_environment.json \
+            -r htmlextra
 
       - name: Show repo file structure
         run: ls -R
