@@ -29,6 +29,6 @@ jobs:
         run: |               
           newman run In-warranty_Flow_Collection_Random_Data.postman_collection.json \
             -e QA.postman_environment.json \
-            -r htmlextra
+            -r cli,htmlextra
           
   
