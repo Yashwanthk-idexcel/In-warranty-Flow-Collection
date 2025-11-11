@@ -18,15 +18,15 @@ jobs:
       - name: List files in repository
         run: ls -R .
 
-      # - name: Install nodejs and npm
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: '18'
+      - name: Install nodejs and npm
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
 
-      # - name: Install newman & htmlextra
-      #   run: | # Multi line commands - we need to use single pipe 
-      #     npm install -g newman
-      #     npm install -g newman-reporter-htmlextra
+      - name: Install newman & htmlextra
+        run: | # Multi line commands - we need to use single pipe 
+          npm install -g newman
+          npm install -g newman-reporter-htmlextra
 
       # - name: Run postman collection with newman
       #   run: |               
