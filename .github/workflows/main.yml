@@ -29,6 +29,8 @@ jobs:
       - name: Run postman collection with newman
         run: |
           newman run In-warranty_Flow_Collection_Random_Data.postman_collection.json -e QA.postman_environment.json -r htmlextra
-        
+
+      - name: Show repo file structure
+        run: ls -R
           
   
