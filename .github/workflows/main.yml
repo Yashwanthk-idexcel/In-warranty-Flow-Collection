@@ -12,9 +12,8 @@ on:
 jobs:
   run-postman-tests:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout the code
+      - name: Checkout code
         uses: actions/checkout@v5.0.0
 
       - name: Install nodejs and npm
@@ -29,7 +28,7 @@ jobs:
 
       - name: Run postman collection with newman
         run: |
-          newman run In-warranty_Flow_Collection_Excel_Data.postman_collection.json \
+          newman run In-warranty_Flow_Collection_Random_Data.postman_collection \
             -e QA.postman_environment.json \
             -d In-warranty_Flow_TestData.csv \
             -r htmlextra
