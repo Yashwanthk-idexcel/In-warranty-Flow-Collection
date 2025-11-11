@@ -15,12 +15,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Show current working directory
-        run: pwd
-
-      - name: List files in repository
-        run: ls -R .
-
       - name: Install nodejs and npm
         uses: actions/setup-node@v4
         with:
@@ -31,19 +25,10 @@ jobs:
           npm install -g newman
           npm install -g newman-reporter-htmlextra
 
-      - name: Check newman version
-        run: newman -v
-
-      - name: Show current working directory
-        run: pwd
-
-      - name: List files in repository
-        run: ls -R .
-
-      # - name: Run postman collection with newman
-      #   run: |               
-      #     newman run postman/In-warranty_Flow_Collection_Random_Data.postman_collection.json \
-      #       -e QA.postman_environment.json \
-      #       -r htmlextra
+      - name: Run postman collection with newman
+        run: |               
+          newman run In-warranty-Flow-Collection/In-warranty_Flow_Collection_Random_Data.postman_collection.json \
+            -e In-warranty-Flow-Collection/QA.postman_environment.json \
+            -r htmlextra
           
   
