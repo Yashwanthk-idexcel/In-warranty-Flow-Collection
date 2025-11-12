@@ -55,13 +55,13 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: Phoenix Inwarranty Flow Test Execution Report
-          to: iyashwanthkrishna000@gmail.com
+          to: 77iyashwanthkrishna000@gmail.com
           from: ${{ secrets.EMAIL_USERNAME }}
           body: | 
                 Hi,
                 Phoenix In-warranty Flow Test has been executed. The report has been published and the 
                 url is - https://yashwanthk-idexcel.github.io/In-warranty-Flow-Collection/
-          attachments: newman/index.html
+          attachments: newman/index.html #If the attachment size is more that 25MB, then it'll not accept
                 
           
       
