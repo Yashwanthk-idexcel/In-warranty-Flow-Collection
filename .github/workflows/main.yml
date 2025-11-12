@@ -45,6 +45,26 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # Github will generate the token by itself
           publish_dir: newman/
+
+      - name: Send Email Notification
+        if: always()
+        uses: dawidd6/action-send-mail@v6
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Phoenix Inwarranty Flow Test Execution Report
+          to: iyashwanthkrishna000@gmail.com
+          from: ${{ secrets.EMAIL_USERNAME }}
+          body: | 
+                Hi,
+                Phoenix In-warranty Flow Test has been executed. The report has been published and the 
+                url is - https://yashwanthk-idexcel.github.io/In-warranty-Flow-Collection/
+          attachments: newman/index.html
+                
+          
+      
         
           
   
