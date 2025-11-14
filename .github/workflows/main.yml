@@ -10,7 +10,7 @@ on:
 
 jobs:
   run-postman-tests:
-    runs-on: ubuntu-latest
+    runs-on: ec2-github-runner
     steps:
       - name: Checkout code
         uses: actions/checkout@v5.0.0
@@ -55,7 +55,7 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: Phoenix Inwarranty Flow Test Execution Report
-          to: 77iyashwanthkrishna000@gmail.com
+          to: iyashwanthkrishna000@gmail.com
           from: ${{ secrets.EMAIL_USERNAME }}
           body: | 
                 Hi,
